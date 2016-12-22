@@ -1,14 +1,23 @@
-file = open('input/input.sif', 'r')
+
+
+
+
+
+
+def convertFileToString(filename):
+    with open('input/' + filename, 'r') as myfile:
+        data=myfile.read()#.replace('\n', '')
+    return data
+
+def tokenize(chars):
+    return chars.replace('(', ' ( ').replace(')', ' ) ').split()
+
+
+
+
+stringFile = convertFileToString('input.sif')
+arrayFile = tokenize(stringFile)
+print(arrayFile)
 
 #print file.read()
 stackFunctions = list()
-
-for line in file:
-    arrayLine = line.split()
-    print arrayLine
-    for word in line:
-        if word[0] == '(':
-            currentFunction = word[1:]
-            stackFunctions.append(currentFunction)
-        else:
-            currentWord = word
