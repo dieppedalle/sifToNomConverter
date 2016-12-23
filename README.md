@@ -25,3 +25,11 @@ would become
 ```
 face f0 (0 32 31 63) endface
 ```
+
+The files in the output folder were generated using:
+```
+python main.py Borromean Borromean True
+python main.py input input True
+python main.py zero zero True
+```
+
