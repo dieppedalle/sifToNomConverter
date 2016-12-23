@@ -40,10 +40,12 @@ def parse(tokens):
         return currentToken
 
 totalNumberVertices = 0
+numberVertices = 0
 def eval(x, outputFile, isSquare):
     """
     Writes the converted files to an output file
     """
+    global numberVertices
     global totalNumberVertices
     if not isinstance(x, list):
         return x
@@ -81,7 +83,7 @@ def eval(x, outputFile, isSquare):
             for i, vertex in enumerate(element):
                 if i != 0:
                     outputFile.write(" ")
-                outputFile.write("v" + vertex)
+                outputFile.write("v" + str(totalNumberVertices-numberVertices + int(vertex)))
             outputFile.write(") endface\n")
 
         #print(newFaces)
@@ -92,7 +94,7 @@ def eval(x, outputFile, isSquare):
             for i, vertex in enumerate(element):
                 if i != 0:
                     outputFile.write(" ")
-                outputFile.write("v" + vertex)
+                outputFile.write("v" + str(totalNumberVertices-numberVertices + int(vertex)))
             outputFile.write(") endface\n")
         outputFile.write("endmesh\n\n")
 
