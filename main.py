@@ -109,7 +109,7 @@ def mergeFaces(listFaces, newFaces):
                 break;
 
 
-squarefaces=True
+#squarefaces=True
 
 
 def main():
@@ -125,4 +125,5 @@ def main():
 
 inputName = sys.argv[1]
 outputName = sys.argv[2]
+squarefaces = sys.argv[3]
 main()
