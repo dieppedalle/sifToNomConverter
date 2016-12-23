@@ -1,4 +1,5 @@
 listMeshes = list()
+listFaces = list()
 
 def convertFileToString(filename):
     with open('input/' + filename, 'r') as myfile:
@@ -24,8 +25,7 @@ def parse(tokens):
     else:
         return currentToken
 
-def eval(x, outputFile):
-
+def eval(x, outputFile, isSquare):
     if not isinstance(x, list):
         #print(x)
         return x
@@ -44,8 +44,12 @@ def eval(x, outputFile):
         listMeshes.append(meshName)
 
         outputFile.write("mesh " + meshName + "\n")
+        
+
         for i in range(numberTriangles):
             outputFile.write("face f" + str(i) + " (")
+
+            listFaces.append(x[(2+i)][1:])
 
             for i, vertex in enumerate(x[(2+i)][1:]):
                 if i != 0:
@@ -54,8 +58,8 @@ def eval(x, outputFile):
             outputFile.write(") endface\n")
         outputFile.write("endmesh\n\n")
     else:
-        proc = eval(x[0], outputFile)
-        args = [eval(arg, outputFile) for arg in x[1:]]
+        proc = eval(x[0], outputFile, isSquare)
+        args = [eval(arg, outputFile, isSquare) for arg in x[1:]]
 
 def createMeshes(outputFile):
     for i, mesh in enumerate(listMeshes):
@@ -72,6 +76,24 @@ def removeComments(stringFile):
     return (re.sub("(\(\*).*?(\*\))", "", stringFile))
     #print(stringFile)
 
+def mergeFaces(listFaces):
+    print(listFaces)
+    newFaces = list()
+
+    while len(listFaces) != 0:
+        currentList = listFaces.pop(0)
+        for i, element in enumerate(listFaces):
+            #print(element)
+            if len(list(set(currentList).intersection(element))) == 2:
+                newFaces.append(list(set(currentList + element)))
+                listFaces.pop(i)
+                break;
+    #print(listFaces)
+    #currentList = listFaces.pop(0)
+    #print(newFaces)
+
+squarefaces=True
+
 def main():
     stringFile = convertFileToString('input.sif')
     removeComments(stringFile)
@@ -80,8 +102,11 @@ def main():
     #print(arrayFile)
     outputFile = createOutputFile()
 
-    eval(arrayFile, outputFile)
+    eval(arrayFile, outputFile, squarefaces)
     createMeshes(outputFile)
+    mergeFaces(listFaces)
+
+
 
 
 
