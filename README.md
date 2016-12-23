@@ -15,3 +15,13 @@ python main.py inputFile outputFile True
 ```
 
 This True flag will merge the triangle faces into square faces whenever it is possible (as a result less faces will be created).
+
+For example, with the True flag the following faces would become:
+```
+face f0 (0 32 31) endface
+face f1 (0 63 32) endface
+```
+would become
+```
+face f0 (0 32 31 63) endface
+```
