@@ -78,7 +78,7 @@ def eval(x, outputFile, isSquare):
             for i, vertex in enumerate(element):
                 if i != 0:
                     outputFile.write(" ")
-                outputFile.write(vertex)
+                outputFile.write("v" + vertex)
             outputFile.write(") endface\n")
 
         # Checks whether ot not there are any rectangle faces to add
@@ -88,7 +88,7 @@ def eval(x, outputFile, isSquare):
             for i, vertex in enumerate(element):
                 if i != 0:
                     outputFile.write(" ")
-                outputFile.write(vertex)
+                outputFile.write("v" + vertex)
             outputFile.write(") endface\n")
         outputFile.write("endmesh\n\n")
 
@@ -132,19 +132,12 @@ def mergeFaces(listFaces, newFaces):
                 listFaces.pop(i)
                 break;
 
+
 def main():
     """
     main Function
     """
-    # Reads the argument from the command
-    inputName = sys.argv[1]
-    outputName = sys.argv[2]
 
-    # Checks if need to convert triangle faces to rectangles
-    if len(sys.argv) > 3:
-        squarefaces = sys.argv[3]
-    else:
-        squarefaces = False
 
     # Parsing the string
     stringFile = convertFileToString(inputName + '.sif')
@@ -158,4 +151,13 @@ def main():
     eval(arrayFile, outputFile, squarefaces)
     createMeshes(outputFile)
 
+# Reads the argument from the command
+inputName = sys.argv[1]
+outputName = sys.argv[2]
+
+# Checks if need to convert triangle faces to rectangles
+if len(sys.argv) > 3:
+    squarefaces = sys.argv[3]
+else:
+    squarefaces = False
 main()
