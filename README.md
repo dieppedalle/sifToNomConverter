@@ -1,6 +1,8 @@
 # sifToNomeConverter
 ## Script to convert .sif files to .nom format.
 
+The code was written using Python 2.7. No external libraries are needed.
+
 To run the script enter the following command:
 ```
 python main.py inputFile outputFile
