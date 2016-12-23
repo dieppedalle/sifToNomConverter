@@ -74,6 +74,12 @@ def eval(x, outputFile, isSquare):
 
         # Checks if we need to convert triangle faces to rectangles
 
+        for element in listFaces:
+            if len(element)>3:
+                listFaces.remove(element)
+                newFaces.append(element)
+
+
         if isSquare == "True":
             mergeFaces(listFaces, newFaces)
 
