@@ -29,8 +29,8 @@ face f0 (0 32 31 63) endface
 ### Example
 The files in the output folder were generated using:
 ```
-python main.py Borromean Borromean
 python main.py input output
+python main.py Borromean Borromean
 python main.py zero zero True
 ```
 
