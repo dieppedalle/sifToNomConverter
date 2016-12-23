@@ -6,7 +6,6 @@ listMeshes = list()
 listFaces = list()
 newFaces = list()
 
-
 def convertFileToString(filename):
     """
     Function is open input file and store it as a string
@@ -57,7 +56,6 @@ def eval(x, outputFile, isSquare):
             outputFile.write("point v" + str(totalNumberVertices + i) + " (" + x[(2+i)][1] + " " + x[(2+i)][2] + " " + x[(2+i)][3] + ") endpoint\n")
         outputFile.write("\n")
         totalNumberVertices += numberVertices
-
     elif x[0] == "triangles":
         listFaces = []
         newFaces = []
@@ -118,7 +116,6 @@ def createOutputFile():
     outputFile.write("####  CONVERTED FROME A SIF  FILE  ####\n\n")
     return outputFile
 
-
 def removeComments(stringFile):
     """
     Removes all of the comments from the string
@@ -138,13 +135,10 @@ def mergeFaces(listFaces, newFaces):
                 listFaces.pop(i)
                 break;
 
-
 def main():
     """
     main Function
     """
-
-
     # Parsing the string
     stringFile = convertFileToString(inputName + '.sif')
     removeComments(stringFile)
