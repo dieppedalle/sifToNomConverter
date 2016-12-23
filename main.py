@@ -6,6 +6,7 @@ listMeshes = list()
 listFaces = list()
 newFaces = list()
 
+
 def convertFileToString(filename):
     """
     Function is open input file and store it as a string
@@ -39,10 +40,12 @@ def parse(tokens):
     else:
         return currentToken
 
+totalNumberVertices = 0
 def eval(x, outputFile, isSquare):
     """
     Writes the converted files to an output file
     """
+    global totalNumberVertices
     if not isinstance(x, list):
         return x
     elif x[0] == "vertices":
@@ -51,8 +54,9 @@ def eval(x, outputFile, isSquare):
 
         # Converts vertices to .nom syntax
         for i in range(numberVertices):
-            outputFile.write("point v" + str(i) + " (" + x[(2+i)][1] + " " + x[(2+i)][2] + " " + x[(2+i)][3] + ") endpoint\n")
+            outputFile.write("point v" + str(totalNumberVertices + i) + " (" + x[(2+i)][1] + " " + x[(2+i)][2] + " " + x[(2+i)][3] + ") endpoint\n")
         outputFile.write("\n")
+        totalNumberVertices += numberVertices
 
     elif x[0] == "triangles":
         listFaces = []
@@ -69,7 +73,8 @@ def eval(x, outputFile, isSquare):
             listFaces.append(x[(2+i)][1:])
 
         # Checks if we need to convert triangle faces to rectangles
-        if isSquare == True:
+
+        if isSquare == "True":
             mergeFaces(listFaces, newFaces)
 
         for i, element in enumerate(listFaces):
@@ -81,6 +86,7 @@ def eval(x, outputFile, isSquare):
                 outputFile.write("v" + vertex)
             outputFile.write(") endface\n")
 
+        #print(newFaces)
         # Checks whether ot not there are any rectangle faces to add
         for i, element in enumerate(newFaces):
             outputFile.write("face f" + str(len(listFaces)+i) + " (")

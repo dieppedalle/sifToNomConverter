@@ -66,70 +66,38 @@ point v62 (-0.014955 0.036105 0.000000) endpoint
 point v63 (-0.007554 0.038371 0.000000) endpoint
 
 mesh SIFmesh0
-face f0 (0 32 31) endface
-face f1 (0 63 32) endface
-face f2 (1 63 0) endface
-face f3 (1 62 63) endface
-face f4 (2 62 1) endface
-face f5 (2 61 62) endface
-face f6 (3 61 2) endface
-face f7 (3 60 61) endface
-face f8 (4 60 3) endface
-face f9 (4 59 60) endface
-face f10 (5 59 4) endface
-face f11 (5 58 59) endface
-face f12 (6 58 5) endface
-face f13 (6 57 58) endface
-face f14 (7 57 6) endface
-face f15 (7 56 57) endface
-face f16 (8 56 7) endface
-face f17 (8 55 56) endface
-face f18 (9 55 8) endface
-face f19 (9 54 55) endface
-face f20 (10 54 9) endface
-face f21 (10 53 54) endface
-face f22 (11 53 10) endface
-face f23 (11 52 53) endface
-face f24 (12 52 11) endface
-face f25 (12 51 52) endface
-face f26 (13 51 12) endface
-face f27 (13 50 51) endface
-face f28 (14 50 13) endface
-face f29 (14 49 50) endface
-face f30 (15 49 14) endface
-face f31 (15 48 49) endface
-face f32 (16 48 15) endface
-face f33 (16 47 48) endface
-face f34 (17 47 16) endface
-face f35 (17 46 47) endface
-face f36 (18 46 17) endface
-face f37 (18 45 46) endface
-face f38 (19 45 18) endface
-face f39 (19 44 45) endface
-face f40 (20 44 19) endface
-face f41 (20 43 44) endface
-face f42 (21 43 20) endface
-face f43 (21 42 43) endface
-face f44 (22 42 21) endface
-face f45 (22 41 42) endface
-face f46 (23 41 22) endface
-face f47 (23 40 41) endface
-face f48 (24 40 23) endface
-face f49 (24 39 40) endface
-face f50 (25 39 24) endface
-face f51 (25 38 39) endface
-face f52 (26 38 25) endface
-face f53 (26 37 38) endface
-face f54 (27 37 26) endface
-face f55 (27 36 37) endface
-face f56 (28 36 27) endface
-face f57 (28 35 36) endface
-face f58 (29 35 28) endface
-face f59 (29 34 35) endface
-face f60 (30 34 29) endface
-face f61 (30 33 34) endface
-face f62 (31 33 30) endface
-face f63 (32 33 31) endface
+face f0 (v0 v31 v63 v32) endface
+face f1 (v1 v0 v62 v63) endface
+face f2 (v1 v61 v62 v2) endface
+face f3 (v60 v61 v3 v2) endface
+face f4 (v60 v3 v59 v4) endface
+face f5 (v59 v5 v4 v58) endface
+face f6 (v57 v5 v58 v6) endface
+face f7 (v57 v56 v7 v6) endface
+face f8 (v55 v8 v56 v7) endface
+face f9 (v9 v55 v54 v8) endface
+face f10 (v9 v10 v53 v54) endface
+face f11 (v11 v10 v53 v52) endface
+face f12 (v11 v12 v51 v52) endface
+face f13 (v13 v12 v51 v50) endface
+face f14 (v13 v49 v14 v50) endface
+face f15 (v15 v14 v48 v49) endface
+face f16 (v47 v15 v48 v16) endface
+face f17 (v46 v47 v17 v16) endface
+face f18 (v46 v18 v45 v17) endface
+face f19 (v19 v18 v44 v45) endface
+face f20 (v19 v44 v20 v43) endface
+face f21 (v42 v20 v21 v43) endface
+face f22 (v42 v21 v22 v41) endface
+face f23 (v41 v40 v22 v23) endface
+face f24 (v24 v39 v40 v23) endface
+face f25 (v24 v25 v39 v38) endface
+face f26 (v25 v26 v38 v37) endface
+face f27 (v26 v27 v37 v36) endface
+face f28 (v27 v28 v36 v35) endface
+face f29 (v28 v29 v35 v34) endface
+face f30 (v33 v30 v29 v34) endface
+face f31 (v33 v32 v31 v30) endface
 endmesh
 
 instance  mesh0 SIFmesh0 scale (1 1 1)  endinstance
