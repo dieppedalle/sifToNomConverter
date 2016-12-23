@@ -1,0 +1,64 @@
+####  CONVERTED FROME A SIF  FILE  ####
+
+point v0 (1.499850 1.000000 1.038186) endpoint
+point v1 (2.886812 1.000000 2.116575) endpoint
+point v2 (4.325899 1.000000 3.021054) endpoint
+point v3 (5.889616 1.000000 3.487664) endpoint
+point v4 (5.977444 0.500000 3.097425) endpoint
+point v5 (5.999401 0.000000 2.999866) endpoint
+point v6 (5.977444 -0.500000 3.097425) endpoint
+point v7 (5.889616 -1.000000 3.487664) endpoint
+point v8 (4.325899 -1.000000 3.021054) endpoint
+point v9 (4.464820 -0.500000 2.645952) endpoint
+point v10 (2.886812 -1.000000 2.116575) endpoint
+point v11 (2.977122 -0.500000 1.938194) endpoint
+point v12 (1.499850 -1.000000 1.038186) endpoint
+point v13 (1.499850 -0.500000 1.038186) endpoint
+point v14 (0.000000 -1.000000 -0.000000) endpoint
+point v15 (0.000000 -0.500000 -0.000000) endpoint
+point v16 (1.499850 0.000000 1.038186) endpoint
+point v17 (2.999700 0.000000 1.893598) endpoint
+point v18 (4.499550 0.000000 2.552177) endpoint
+point v19 (4.464820 0.500000 2.645952) endpoint
+point v20 (2.977122 0.500000 1.938194) endpoint
+point v21 (1.499850 0.500000 1.038186) endpoint
+point v22 (0.000000 0.000000 0.000000) endpoint
+point v23 (-0.000000 0.500000 0.000000) endpoint
+point v24 (-0.000000 1.000000 0.000000) endpoint
+
+mesh SIFmesh0
+face f0 (0 23 24) endface
+face f1 (0 21 23) endface
+face f2 (1 21 0) endface
+face f3 (1 20 21) endface
+face f4 (2 20 1) endface
+face f5 (2 19 20) endface
+face f6 (3 19 2) endface
+face f7 (3 4 19) endface
+face f8 (4 18 19) endface
+face f9 (4 5 18) endface
+face f10 (5 9 18) endface
+face f11 (5 6 9) endface
+face f12 (6 8 9) endface
+face f13 (6 7 8) endface
+face f14 (9 8 10) endface
+face f15 (9 10 11) endface
+face f16 (11 10 12) endface
+face f17 (11 12 13) endface
+face f18 (13 12 14) endface
+face f19 (13 14 15) endface
+face f20 (16 13 15) endface
+face f21 (17 13 16) endface
+face f22 (17 11 13) endface
+face f23 (18 11 17) endface
+face f24 (18 9 11) endface
+face f25 (19 18 17) endface
+face f26 (19 17 20) endface
+face f27 (20 17 16) endface
+face f28 (20 16 21) endface
+face f29 (21 16 22) endface
+face f30 (16 15 22) endface
+face f31 (21 22 23) endface
+endmesh
+
+instance  mesh0 SIFmesh0 scale (1 1 1)  endinstance
