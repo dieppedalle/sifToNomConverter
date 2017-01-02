@@ -15,7 +15,7 @@ def convertFileToString(filename):
     """
     Function is open input file and store it as a string
     """
-    with open('input/' + filename, 'r') as myfile:
+    with open(filename, 'r') as myfile:
         data=myfile.read()
     return data
 
@@ -126,7 +126,7 @@ def createOutputFile():
     """
     Create an output stream
     """
-    outputFile = open("output/" + outputName + ".nom", "w")
+    outputFile = open(outputName, "w")
     outputFile.write("####  CONVERTED FROME A SIF  FILE  ####\n\n")
     return outputFile
 
@@ -146,7 +146,10 @@ def mergeFaces(listFaces, newFaces):
         for i, element in enumerate(listFaces):
             if len(list(set(currentList).intersection(element))) == 2:
                 #Added
-                indexToInsert = currentList.index(list(set(currentList).intersection(element))[0])+1
+                indexToInsert1 = currentList.index(list(set(currentList).intersection(element))[0])+1
+                indexToInsert2 = currentList.index(list(set(currentList).intersection(element))[1])+1
+
+                indexToInsert = min(indexToInsert1 % 3, indexToInsert2 % 3)
                 elementToInsert = list(set(element) - set(list(set(currentList).intersection(element))))[0]
 
                 currentList.insert(indexToInsert, elementToInsert)
@@ -173,7 +176,7 @@ def main():
     listFaces = list()
     newFaces = list()
     # Parsing the string
-    stringFile = convertFileToString(inputName + '.sif')
+    stringFile = convertFileToString(inputName)
     removeComments(stringFile)
     tokens = tokenize(stringFile)
     arrayFile = parse(tokens)
@@ -209,16 +212,16 @@ def show_entry_fields():
        squarefaces = "True"
    else:
        squarefaces = "False"
-   
+
    main()
 
 master = Tk()
 master.title("sifToNome Converter")
-Label(master, text="Input Path", justify=LEFT).grid(row=0)
-Label(master, text="Output Path", justify=LEFT).grid(row=1)
+Label(master, text="Input Path", justify=LEFT, anchor="w", width=9).grid(row=0)
+Label(master, text="Output Path", justify=LEFT, anchor="w", width=9).grid(row=1)
 
-e1 = Entry(master)
-e2 = Entry(master)
+e1 = Entry(master, width=40)
+e2 = Entry(master, width=40)
 
 e1.grid(row=0, column=1)
 e2.grid(row=1, column=1)
