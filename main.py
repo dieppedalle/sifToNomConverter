@@ -2,6 +2,11 @@
 import re
 import sys
 
+from Tkinter import *
+
+
+
+
 listMeshes = list()
 listFaces = list()
 newFaces = list()
@@ -79,8 +84,9 @@ def eval(x, outputFile, isSquare):
                 listFaces.remove(element)
                 newFaces.append(element)
 
-
+        print(isSquare)
         if isSquare == "True":
+
             mergeFaces(listFaces, newFaces)
 
         for i, element in enumerate(listFaces):
@@ -144,7 +150,7 @@ def mergeFaces(listFaces, newFaces):
                 elementToInsert = list(set(element) - set(list(set(currentList).intersection(element))))[0]
 
                 currentList.insert(indexToInsert, elementToInsert)
-                
+
                 newFaces.append(currentList)
 
                 listFaces.pop(i)
@@ -154,6 +160,18 @@ def main():
     """
     main Function
     """
+    global listMeshes
+    global listFaces
+    global newFaces
+
+    global totalNumberVertices
+    global numberVertices
+    totalNumberVertices = 0
+    numberVertices = 0
+
+    listMeshes = list()
+    listFaces = list()
+    newFaces = list()
     # Parsing the string
     stringFile = convertFileToString(inputName + '.sif')
     removeComments(stringFile)
@@ -166,13 +184,49 @@ def main():
     eval(arrayFile, outputFile, squarefaces)
     createMeshes(outputFile)
 
-# Reads the argument from the command
-inputName = sys.argv[1]
-outputName = sys.argv[2]
 
-# Checks if need to convert triangle faces to rectangles
-if len(sys.argv) > 3:
-    squarefaces = sys.argv[3]
-else:
-    squarefaces = False
-main()
+
+
+
+inputName = ""
+outputName = ""
+squarefaces = ""
+
+def show_entry_fields():
+   print("First Name: %s\nLast Name: %s" % (e1.get(), e2.get()))
+
+   global inputName
+   global outputName
+   global squarefaces
+   # Reads the argument from the command
+   inputName = e1.get()
+   outputName = e2.get()
+
+   # Checks if need to convert triangle faces to rectangles
+   #print var1.get()
+
+   if var1.get() == 1:
+       squarefaces = "True"
+   else:
+       squarefaces = "False"
+   
+   main()
+
+master = Tk()
+master.title("sifToNome Converter")
+Label(master, text="Input Path", justify=LEFT).grid(row=0)
+Label(master, text="Output Path", justify=LEFT).grid(row=1)
+
+e1 = Entry(master)
+e2 = Entry(master)
+
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
+
+var1 = IntVar()
+Checkbutton(master, text="Make Rectangular Faces", variable=var1).grid(row=2, columnspan=2, sticky=W)
+
+Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=W, pady=4)
+Button(master, text='Convert', command=show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
+
+mainloop( )
