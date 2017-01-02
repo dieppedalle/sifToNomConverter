@@ -139,7 +139,14 @@ def mergeFaces(listFaces, newFaces):
         currentList = listFaces.pop(0)
         for i, element in enumerate(listFaces):
             if len(list(set(currentList).intersection(element))) == 2:
-                newFaces.append(list(set(currentList + element)))
+                #Added
+                indexToInsert = currentList.index(list(set(currentList).intersection(element))[0])+1
+                elementToInsert = list(set(element) - set(list(set(currentList).intersection(element))))[0]
+
+                currentList.insert(indexToInsert, elementToInsert)
+                
+                newFaces.append(currentList)
+
                 listFaces.pop(i)
                 break;
 
