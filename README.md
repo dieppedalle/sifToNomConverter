@@ -10,11 +10,12 @@ To download the files, either:
 ```
 git clone PASTE_URL 
 ```
+<img src="images/screenshot.png" width="400">
 
 ### Running the script
 
 
-To run the script, open terminal (on macOS) or command prompt (on Windows) application. ```cd``` or ```dir``` into the folder and enter the following command:
+To run the script, open terminal (on macOS) or command prompt (on Windows) application. ```cd``` or ```dir``` into the downloaded folder and enter the following command:
 ```
 python main.py
 ```
