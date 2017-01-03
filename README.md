@@ -1,8 +1,18 @@
 # sifToNomeConverter
 ## Script to convert .sif files to .nom format.
 
+### Installation
+The code was written using [Python 2.7](https://www.python.org/downloads/). No external libraries are needed. Download Python 2.7 from https://www.python.org/downloads/.
+
+To download the files, either:
+* Open your browser and navigate to https://github.com/dieppedalle/sifToNomConverter/. Click on "Clone or Download"->"Download Zip".
+* Open your browser and navigate to https://github.com/dieppedalle/sifToNomConverter/. Click on "Clone or Download" and copy the URL. Then open terminal (on macOS) or command prompt (on Windows) and type (where PASTE_URL is the copied URL):
+```
+git clone PASTE_URL 
+```
+
 ### Running the script
-The code was written using [Python 2.7](https://www.python.org/downloads/). No external libraries are needed.
+
 
 To run the script enter the following command:
 ```
