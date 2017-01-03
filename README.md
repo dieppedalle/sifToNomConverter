@@ -33,5 +33,4 @@ would become
 ```
 face f0 (v30 v0 v1 v59) endface
 ```
-<img src="images/example.png" width="100">
-![alt text](images/example.png | width=100)
+<img src="images/example.png" width="200">
