@@ -10,7 +10,7 @@ To download the files, either:
 ```
 git clone PASTE_URL 
 ```
-<img src="images/screenshot.png" width="200">
+<img src="images/screenshot.png" width="400">
 
 ### Running the script
 
