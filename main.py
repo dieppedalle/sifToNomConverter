@@ -2,11 +2,6 @@
 import re
 import sys
 
-from Tkinter import *
-
-
-
-
 listMeshes = list()
 listFaces = list()
 newFaces = list()
@@ -15,7 +10,7 @@ def convertFileToString(filename):
     """
     Function is open input file and store it as a string
     """
-    with open(filename, 'r') as myfile:
+    with open('input/' + filename, 'r') as myfile:
         data=myfile.read()
     return data
 
@@ -84,9 +79,8 @@ def eval(x, outputFile, isSquare):
                 listFaces.remove(element)
                 newFaces.append(element)
 
-        print(isSquare)
-        if isSquare == "True":
 
+        if isSquare == "True":
             mergeFaces(listFaces, newFaces)
 
         for i, element in enumerate(listFaces):
@@ -126,7 +120,7 @@ def createOutputFile():
     """
     Create an output stream
     """
-    outputFile = open(outputName, "w")
+    outputFile = open("output/" + outputName + ".nom", "w")
     outputFile.write("####  CONVERTED FROME A SIF  FILE  ####\n\n")
     return outputFile
 
@@ -150,6 +144,7 @@ def mergeFaces(listFaces, newFaces):
                 indexToInsert2 = currentList.index(list(set(currentList).intersection(element))[1])+1
 
                 indexToInsert = min(indexToInsert1 % 3, indexToInsert2 % 3)
+
                 elementToInsert = list(set(element) - set(list(set(currentList).intersection(element))))[0]
 
                 currentList.insert(indexToInsert, elementToInsert)
@@ -163,20 +158,8 @@ def main():
     """
     main Function
     """
-    global listMeshes
-    global listFaces
-    global newFaces
-
-    global totalNumberVertices
-    global numberVertices
-    totalNumberVertices = 0
-    numberVertices = 0
-
-    listMeshes = list()
-    listFaces = list()
-    newFaces = list()
     # Parsing the string
-    stringFile = convertFileToString(inputName)
+    stringFile = convertFileToString(inputName + '.sif')
     removeComments(stringFile)
     tokens = tokenize(stringFile)
     arrayFile = parse(tokens)
@@ -187,49 +170,13 @@ def main():
     eval(arrayFile, outputFile, squarefaces)
     createMeshes(outputFile)
 
+# Reads the argument from the command
+inputName = sys.argv[1]
+outputName = sys.argv[2]
 
-
-
-
-inputName = ""
-outputName = ""
-squarefaces = ""
-
-def show_entry_fields():
-   print("First Name: %s\nLast Name: %s" % (e1.get(), e2.get()))
-
-   global inputName
-   global outputName
-   global squarefaces
-   # Reads the argument from the command
-   inputName = e1.get()
-   outputName = e2.get()
-
-   # Checks if need to convert triangle faces to rectangles
-   #print var1.get()
-
-   if var1.get() == 1:
-       squarefaces = "True"
-   else:
-       squarefaces = "False"
-
-   main()
-
-master = Tk()
-master.title("sifToNome Converter")
-Label(master, text="Input Path", justify=LEFT, anchor="w", width=9).grid(row=0)
-Label(master, text="Output Path", justify=LEFT, anchor="w", width=9).grid(row=1)
-
-e1 = Entry(master, width=40)
-e2 = Entry(master, width=40)
-
-e1.grid(row=0, column=1)
-e2.grid(row=1, column=1)
-
-var1 = IntVar()
-Checkbutton(master, text="Make Rectangular Faces", variable=var1).grid(row=2, columnspan=2, sticky=W)
-
-Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=W, pady=4)
-Button(master, text='Convert', command=show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
-
-mainloop( )
+# Checks if need to convert triangle faces to rectangles
+if len(sys.argv) > 3:
+    squarefaces = sys.argv[3]
+else:
+    squarefaces = False
+main()
