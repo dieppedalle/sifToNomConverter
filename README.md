@@ -2,7 +2,7 @@
 ## Script to convert .sif files to .nom format.
 
 ### Running the script
-The code was written using Python 2.7. No external libraries are needed.
+The code was written using [Python 2.7](https://www.python.org/downloads/). No external libraries are needed.
 
 To run the script enter the following command:
 ```
